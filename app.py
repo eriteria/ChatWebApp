@@ -39,4 +39,4 @@ def handle_join_room_event(data):
 
 
 if __name__ == '__main__':
-    socketio.run(app, debug=True)
+    socketio.run(app)
