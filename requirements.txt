@@ -4,5 +4,4 @@ eventlet
 gunicorn
 pymongo
 flask-login
-bson
 datetime
