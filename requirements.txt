@@ -2,3 +2,4 @@ Flask
 Flask-socketio
 eventlet
 gunicorn
+pymongo
