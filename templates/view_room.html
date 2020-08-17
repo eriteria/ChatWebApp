@@ -27,8 +27,8 @@
         </ul>
     </body>
     <script src="//cdnjs.cloudflare.com/ajax/libs/socket.io/2.2.0/socket.io.js"></script>
-    <script>
-        const socket = io.connect(location.protocol + '//' + document.domain + ':' + location.port);
+    <script type="text/javascript" charset="utf-8">
+        var socket = io();
         socket.on('connect', function (){
             socket.emit('join_room', {
                 username: "{{ username }}",
