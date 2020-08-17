@@ -35,31 +35,23 @@
                 room: "{{ room._id }}"})
             });
                      
+        let message_input = document.getElementById('message_input');
 
-            let message_inputed = document.getElementById('message_input');
-            document.getElementById('message_input_form').onsubmit = function(e){
-                console.log(message_inputed)
-                e.preventDefault();
-                let message = message_inputed.value.trim();
-                if (message.length){
-                    socket.emit('send_message', {
-                        username: "{{ username }}",
-                        room: "{{ room._id }}", 
-                        message: message
-                    })
-                }
-                message_input.value='';
-                message_input.focus();
-            };
-                
-
-                window.onbeforeunload = function () {
-                    socket.emit('leave_room', {
+        document.getElementById('message_input_form').onsubmit = function (e) {
+            e.preventDefault();
+            let message = message_input.value.trim();
+            if (message.length) {
+                socket.emit('send_message', {
                     username: "{{ username }}",
-                    room: "{{ room._id }}"
+                    room: "{{ room._id }}",
+                    message: message
                 })
-                };
-        
+            }
+            message_input.value = '';
+            message_input.focus();
+        }
+    });
+
             let page = 0;
 
             document.getElementById("load_older_messages_btn").onclick = (e) => {
