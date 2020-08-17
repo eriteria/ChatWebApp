@@ -38,6 +38,7 @@
 
             let message_input = document.getElementById('message_input');
             document.getElementById('message_input_form').onsubmit = function(e){
+                console.log(message_input)
                 e.preventDefault();
                 let message = message_input.value.trim();
                 if (message.length){
