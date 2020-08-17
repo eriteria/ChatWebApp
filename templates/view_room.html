@@ -36,11 +36,11 @@
             });
                      
 
-            let message_input = document.getElementById('message_input');
+            let message_inputed = document.getElementById('message_input');
             document.getElementById('message_input_form').onsubmit = function(e){
-                console.log(message_input)
+                console.log(message_inputed)
                 e.preventDefault();
-                let message = message_input.value.trim();
+                let message = message_inputed.value.trim();
                 if (message.length){
                     socket.emit('send_message', {
                         username: "{{ username }}",
@@ -50,6 +50,7 @@
                 }
                 message_input.value='';
                 message_input.focus();
+            };
                 
 
                 window.onbeforeunload = function () {
@@ -57,10 +58,7 @@
                     username: "{{ username }}",
                     room: "{{ room._id }}"
                 })
-                }
-                message_input.value='';
-                message_input.focus();
-            };
+                };
         
             let page = 0;
 
